@@ -1,10 +1,14 @@
 package org.example;
 
 import io.cucumber.java.en.*;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 
 
 public class LogowanieSteps {
+
+
 
     private Logowanie logowanie;
     private String userName;
@@ -15,6 +19,11 @@ public class LogowanieSteps {
         logowanie = new Logowanie();
     }
 
+    @Before
+    public void setUp(){
+        System.out.println("metoda wykonana przed scenariuszem");
+    }
+
     @And("Użytkownik klika przycisk zaloguj")
     public void użytkownikKlikaPrzyciskZaloguj() {
         System.out.println("Klikamy na przycisk logowania.");
@@ -23,6 +32,10 @@ public class LogowanieSteps {
     @Then("Użytkownik zostanie zalogowany i przeniesiony do strony domowej aplikacji")
     public void użytkownikZostanieZalogowanyIPrzeniesionyDoStronyDomowejAplikacji() {
         Assert.assertTrue(logowanie.isLoggedIn());
+    }
+    @After
+    public void tearDown(){
+        System.out.println("Metoda wykonana po scenariuszu");
     }
 
     @And("Informacja o udanym logowaniu zostanie wyświetlona")
@@ -60,4 +73,6 @@ public class LogowanieSteps {
     public void użytkownikONazwieIHasleIstniejeWBazieDanych(String login, String haslo) {
         logowanie.setUserInDatabase(login, haslo);
     }
+
+
 }

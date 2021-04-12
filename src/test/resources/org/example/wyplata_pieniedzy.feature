@@ -1,3 +1,5 @@
+@qa
+
 Feature: Wypłata pieniędzy z bankomatu
   Scenario: Próba wypłacenia większej ilości niż saldo konta
 

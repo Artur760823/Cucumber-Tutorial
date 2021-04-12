@@ -1,10 +1,18 @@
 package org.example;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 
 import static org.junit.Assert.*;
 
 public class StepDefinitions {
+
+    @Before("@qa")
+    public void setUp(){
+        System.out.println("Metoda przed scenariuszem");
+    }
+
     @Given("Konto z saldem 200 zł")
     public void konto_z_saldem(){
         System.out.println("Metoda given - konto z saldem");
@@ -20,5 +28,12 @@ public class StepDefinitions {
         System.out.println("Metoda Then - weryfikacja salda");
 
     }
+
+    @After("@qa")
+    public void tearDown(){
+        System.out.println("metoda po scenariuszu");
+    }
+
+
 
 }

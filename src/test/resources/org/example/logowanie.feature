@@ -1,3 +1,4 @@
+@dev
 Feature: Logowanie do aplikacji
   W tym pliku będziemy testować logowanie użytkownika
   do aplikacji. Sekcja ta jest traktowana jako opis
