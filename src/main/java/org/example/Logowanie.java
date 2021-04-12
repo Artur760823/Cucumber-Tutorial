@@ -16,9 +16,10 @@ public class Logowanie {
         if((userName.equals(currentUsername)) && (password.equals(currentPassword))){
             this.msg = "Udało Ci się zalogować";
             this.isLoggedIn = true;
+        }else {
+            this.msg = "Nie udało Ci się zalogować";
+            this.isLoggedIn = false;
         }
-        this.msg = "Nie udało Ci się zalogować";
-        this.isLoggedIn = false;
         return isLoggedIn;
     }
 

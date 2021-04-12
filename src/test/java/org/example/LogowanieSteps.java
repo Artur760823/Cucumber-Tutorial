@@ -40,7 +40,7 @@ public class LogowanieSteps {
 
     @Then("Użytkowonik nie zostaje zalogowany i nie zostanie przekierowany na stronę domową aplikacji")
     public void użytkowonikNieZostajeZalogowanyINieZostaniePrzekierowanyNaStronęDomowąAplikacji() {
-        Assert.assertTrue(logowanie.isLoggedIn());
+        Assert.assertFalse(logowanie.isLoggedIn());
     }
 
     @And("Informacja o nieudanej próbie zalogowania zostanie wyświetlona na ekranie.")
@@ -50,6 +50,7 @@ public class LogowanieSteps {
 
     @When("Użytkownik wprowadza nazwę użytkownika {string} i hasło {string}")
     public void użytkownikWprowadzaNazwęUżytkownikaIHasło(String login, String haslo) {
+        System.out.printf("Użytkownik podaje login: %s i hasło: %s\n", login, haslo);
         this.userName = login;
         this.password = haslo;
         logowanie.logIn(login, haslo);

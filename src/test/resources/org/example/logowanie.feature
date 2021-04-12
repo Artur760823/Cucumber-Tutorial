@@ -3,13 +3,16 @@ Feature: Logowanie do aplikacji
   do aplikacji. Sekcja ta jest traktowana jako opis
   i nie wpływa na wykonanie testu.
 
-  Scenario: Użytkownik podaje poprawne dane
-    #given jest warunkiem wstępnym do przeprowadzenia testu
+  Background:
+     #given jest warunkiem wstępnym do przeprowadzenia testu
     Given Użytkownik jest na stronie logowania
-    And Użytkownik o nazwie "login1" i hasle "haslo" istnieje w bazie danych
+
+  Scenario Outline: Użytkownik podaje poprawne dane
+
+    And Użytkownik o nazwie "<login>" i hasle "<haslo>" istnieje w bazie danych
 
     #when określa akcję, która zostanie wykonana
-    When Użytkownik wprowadza nazwę użytkownika "login1" i hasło "haslo"
+    When Użytkownik wprowadza nazwę użytkownika "<login>" i hasło "<haslo>"
 
     #and opisuje dodatkową akcję lub warunek
     And Użytkownik klika przycisk zaloguj
@@ -20,9 +23,14 @@ Feature: Logowanie do aplikacji
     And Informacja o udanym logowaniu zostanie wyświetlona
 
 
+    Examples:
+      | login |haslo|
+      |login1 |haslo1|
+      |login2 |haslo2|
+
 
   Scenario: Użytkownik podaje błędne hasło
-    Given Użytkownik jest na stronie logowania
+
     And Użytkownik o nazwie "login2" i hasle "haslo" istnieje w bazie danych
     When Użytkownik wprowadza nazwę użytkownika "login2" i hasło "zlehaslo"
     And Użytkownik klika przycisk zaloguj
