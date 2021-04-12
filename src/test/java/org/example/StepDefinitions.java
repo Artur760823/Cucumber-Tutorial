@@ -1,8 +1,6 @@
 package org.example;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 import static org.junit.Assert.*;
 
