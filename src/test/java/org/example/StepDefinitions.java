@@ -14,12 +14,12 @@ public class StepDefinitions {
     }
     @When("Użytkownik próbuje wypłacić 300 zł")
     public void wyplata_z_konta(){
-        System.out.println("Metoda when - konto z saldem");
+        System.out.println("Metoda when - wyplata z konta");
 
     }
     @Then("Saldo nie zmienia sie i wynosi 200 zł")
     public void sprawdzenie_salda(){
-        System.out.println("Metoda Then - konto z saldem");
+        System.out.println("Metoda Then - weryfikacja salda");
 
     }
 
